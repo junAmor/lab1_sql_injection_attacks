@@ -21,10 +21,6 @@ public class Authenticator {
         try(var conn = DBUtil.connect("jdbc:sqlite:src/main/resources/database/sample.db",
                 "root","root")) {
             try(var statement = conn.createStatement()) {
-                var query = """
-                        SELECT * FROM user_data
-                        WHERE username =\s""" + "'" + username + "'"
-                        + "AND password = " + "'" + password + "'";
                 System.out.println(query);
                 ResultSet rs = statement.executeQuery(query);
 
